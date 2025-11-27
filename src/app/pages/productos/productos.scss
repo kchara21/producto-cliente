@@ -1,0 +1,99 @@
+.page {
+  min-height: 95vh;
+  background-color: #f5f7fb;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  &__summary {
+    margin: 0;
+    font-size: 12px;
+    color: #374151;
+  }
+
+  &__toolbar {
+    margin-bottom: 8px;
+  }
+
+  &__search-input {
+    width: 320px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+  }
+
+  &__table-wrapper {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__error {
+    color: #b91c1c;
+    background: #fee2e2;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+
+  &__logout {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  &__content {
+    // que la sección pueda crecer
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__table-wrapper {
+    // altura fija o relativa; ajusta a tu gusto
+    height: 83vh; // o por ejemplo: calc(100vh - 200px)
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px 8px 0;
+  }
+
+  &__table-scroll {
+    flex: 1 1 auto;        // ocupa todo el alto disponible
+    overflow: auto;        // 👈 aquí está el scroll
+  }
+
+  &__table {
+    width: 100%;
+    min-width: 1200px;     // si quieres forzar ancho mínimo
+  }
+}

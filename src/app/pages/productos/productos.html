@@ -1,0 +1,65 @@
+<div class="page">
+  <header class="page__header">
+    <div>
+      <h1 class="page__title">Consulta Producto – Cliente</h1>
+      <p class="page__subtitle">
+        Búsqueda global sobre los datos del Excel.
+      </p>
+      <p class="page__summary">
+        Registros: {{ totalFiltrados }} / {{ totalRegistros }}
+      </p>
+    </div>
+
+    <button class="page__logout" type="button" (click)="onLogout()">
+      Cerrar sesión
+    </button>
+  </header>
+
+  <section class="page__toolbar">
+    <input
+      class="page__search-input"
+      type="text"
+      [value]="filtroGlobal"
+      (input)="onFiltroGlobal($any($event.target).value)"
+      [disabled]="cargando"
+      placeholder="Buscar en todas las columnas..."
+    />
+  </section>
+
+  <section class="page__content">
+  <div class="page__table-wrapper">
+    <!-- Contenedor scrolleable -->
+    <div class="page__table-scroll">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z1 page__table"
+      >
+        @for (col of columnas; track col) {
+          <ng-container [matColumnDef]="col">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ col }}
+            </th>
+            <td mat-cell *matCellDef="let row">
+              {{ row[col] }}
+            </td>
+          </ng-container>
+        }
+
+        <tr mat-header-row *matHeaderRowDef="columnas;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+      </table>
+    </div>
+
+    <!-- Paginador fijo abajo, fuera del scroll -->
+    <mat-paginator
+      [length]="totalFiltrados"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </div>
+</section>
+
+</div>
