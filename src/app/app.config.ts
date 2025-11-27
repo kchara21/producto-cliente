@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 
 import {
   MsalService,
+  MsalBroadcastService,
   MSAL_INSTANCE,
   MSAL_GUARD_CONFIG,
   MsalGuard,
@@ -49,6 +50,7 @@ export const appConfig: ApplicationConfig = {
     },
     // servicio principal de MSAL
     MsalService,
+    MsalBroadcastService,
     MsalGuard,
 
     // 👉 inicializador: llama a instance.initialize() antes de todo
