@@ -109,7 +109,7 @@ export class Productos implements AfterViewInit {
 
   onLogout() {
     this.msal.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200/login',
+      postLogoutRedirectUri: `${window.location.origin}/#/login`,
     });
   }
 }
