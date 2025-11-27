@@ -16,18 +16,22 @@ export class Login {
   nombreUsuario: string | null = null;
 
   ngOnInit() {
-    const accounts = this.msal.instance.getAllAccounts();
-
-    if (accounts.length > 0) {
-      const acc = accounts[0];
-      this.nombreUsuario = acc.name ?? acc.username ?? null;
-      // Opcional: redirigir directo
-      this.router.navigate(['/productos']);
-    }
+    this.setActiveAccount();
   }
 
   onLogin() {
     this.msal.loginRedirect(loginRequest);
+  }
+
+  private setActiveAccount() {
+    const accounts = this.msal.instance.getAllAccounts();
+
+    if (accounts.length > 0) {
+      const acc = accounts[0];
+      this.msal.instance.setActiveAccount(acc);
+      this.nombreUsuario = acc.name ?? acc.username ?? null;
+      this.router.navigate(['/productos']);
+    }
   }
 
   irAProductos() {
