@@ -5,14 +5,14 @@ import { Productos } from './pages/productos/productos';
 
 
 export const routes: Routes = [
-    // {
-    //     path: 'login',
-    //     component: Login,
-    // },
+    {
+        path: 'login',
+        component: Login,
+    },
     {
         path: 'productos',
         component: Productos,
-        // canActivate: [MsalGuard],
+        canActivate: [MsalGuard],
     },
     {
         path: '',
