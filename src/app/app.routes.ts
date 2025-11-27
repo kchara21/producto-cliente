@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { MsalGuard } from '@azure/msal-angular';
 import { Login } from './pages/login/login';
 import { Productos } from './pages/productos/productos';
+import { authGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -12,15 +13,15 @@ export const routes: Routes = [
     {
         path: 'productos',
         component: Productos,
-        canActivate: [MsalGuard],
+        canActivate: [authGuard, MsalGuard],
     },
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'productos',
+        redirectTo: 'login',
     },
     {
         path: '**',
-        redirectTo: 'productos',
+        redirectTo: 'login',
     },
 ];
