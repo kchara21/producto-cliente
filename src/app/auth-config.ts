@@ -4,13 +4,14 @@ import {
     Configuration,
     RedirectRequest,
 } from '@azure/msal-browser';
+import { environment } from '../environment';
 
 const origin = window.location.origin;
 
 export const msalConfig: Configuration = {
     auth: {
-        clientId: '4335a4d4-0ff4-4964-8677-0b1c29dbf529',
-        authority: 'https://login.microsoftonline.com/0b506217-0d47-4361-9327-8f74192bb5c5',
+        clientId: environment.clientId,
+        authority: environment.authority,
         redirectUri: `${origin}/`,
     },
     cache: {
